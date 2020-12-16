@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @posts = Post.all.select{|post|post.category_id == params[:id].to_i}
   end
 
   def new
